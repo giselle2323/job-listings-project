@@ -15,8 +15,13 @@ const Card = ({data, className}) => {
           </div>
           <h3 className='card-job-position'>{data.position}</h3>
           <div className='card-bottom'>
-
+            <h3 className='posted-at'>{data.postedAt}</h3>
+            <ul className='card-list'>
+            <li className='contract'> <span className='card-bullet'>&bull;</span> {data.contract}</li>
+            <li className='location'><span className='card-bullet'>&bull;</span>{data.location}</li>
+            </ul>
           </div>
+          <hr/>
         </div>
         
       </div>
