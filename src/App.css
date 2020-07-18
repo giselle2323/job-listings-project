@@ -97,5 +97,30 @@ body {
 .card-bottom {
   display: flex;
   flex-direction: row;
-  
+  padding: 1%;
+}
+
+.card-bullet {
+  font-size: 1rem;
+  padding: 1rem;
+  color: #222;
+}
+
+.card-bottom ul li {
+  display: inline;
+}
+
+.posted-at {
+  font-size: 1rem;
+  padding-right: 1rem;
+}
+
+.contract {
+  font-size: 1rem;
+  padding-right: 1rem;
+}
+
+.location {
+  font-size: 1rem;
+  padding-right: 1rem;
 }
