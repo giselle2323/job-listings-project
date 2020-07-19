@@ -21,7 +21,16 @@ const Card = ({data, className}) => {
             <li className='location'><span className='card-bullet'>&bull;</span>{data.location}</li>
             </ul>
           </div>
-          <hr/>
+          <hr className='card-horizontal-rule'/>
+          <div className='card-bottom-buttons'>
+            <button className='card-button-label'>{data.role}</button>
+            {data.languages.map(language => (
+              <button className='card-button-label'>{language}</button>
+            ))}
+            {data.tools.map(tool => (
+              <button className='card-button-label'>{tool}</button>
+            ))}
+          </div>
         </div>
         
       </div>
