@@ -30,9 +30,9 @@ body {
 }
 
 .card {
-  width: 98%;
+  width: 94%;
   position: relative;
-  padding: 2%;
+  padding: 3%;
   margin: 2%;
   background-color: #fff;
   border-radius: 10px;
@@ -123,4 +123,23 @@ body {
 .location {
   font-size: 1rem;
   padding-right: 1rem;
+}
+
+.card-bottom-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  padding: 10px 0;
+}
+
+.card-button-label {
+  margin: 1%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  outline: unset;
+  height: 50px;
+  width: fit-content;
+  background-color: #eef6f6;
+  color: #5ba4a4
 }
