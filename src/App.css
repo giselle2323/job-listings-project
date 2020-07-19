@@ -26,14 +26,15 @@ body {
 
 .job-listings-container {
   width: 100%;
-  background-color: #effafa
+  background-color: #effafa;
+  padding-top: 10%;
 }
 
 .card {
   width: 94%;
   position: relative;
-  padding: 3%;
-  margin: 2%;
+  padding: 4%;
+  margin: 3% 3% 10% 3%;
   background-color: #fff;
   border-radius: 10px;
 }
@@ -50,6 +51,10 @@ body {
 
 .card-body {
   padding: 2%;
+}
+
+.card-horizontal-rule {
+  margin: 2rem 0.5rem;
 }
 
 .featured-job {
@@ -90,7 +95,7 @@ body {
 }
 
 .card-job-position {
-  padding: 1%;
+  padding: 5% 1%;
   font-size: 1rem;
 }
 
