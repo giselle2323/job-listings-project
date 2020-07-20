@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import image from '../images/account.svg';
 
 const Card = ({data, className}) => {
-
+  // handleClick = () => {
+    
+  // }
   return (
       <div className={`card ${className}`}>
         <img className='card-image' src={image} alt="account" />
@@ -23,7 +25,8 @@ const Card = ({data, className}) => {
           </div>
           <hr className='card-horizontal-rule'/>
           <div className='card-bottom-buttons'>
-            <button className='card-button-label'>{data.role}</button>
+            <button className='card-button-label' onClick>{data.role}</button>
+            <button className='card-button-label'>{data.level}</button>
             {data.languages.map(language => (
               <button className='card-button-label'>{language}</button>
             ))}
