@@ -7,15 +7,14 @@ import Card from './components/Card';
 const App = ()  => {
 
   const [data, setData] = useState(Data);
-  const [filterKey, setFilter] = useState([]);
+  const [filterArray, setFilterArray] = useState([]);
 
   const handleClick = (e) => {
-    setFilter([e.target.value])
-    console.log(e.target.value)
-    console.log(filterKey)
-    const filtered = data.filter(job => filterKey.includes(job.role, console.log(job, job.role, job.tools.map(key => key) )))
-    setData(filtered)
-    console.log(filtered, filterKey)
+    setFilterArray(filterArray.concat(1))
+    console.log(filterArray)
+    e.preventDefault();
+    // const filtered = data.filter(job => job.languages)
+    // setData(filtered);
   }
   return (
     <div className="App">
