@@ -4,15 +4,27 @@ import {Data} from './data'
 import NavBar from './components/NavBar';
 import Card from './components/Card';
 
-function App() {
+const App = ()  => {
 
-  const [data] = useState(Data);
+  const [data, setData] = useState(Data);
+  const [filterArray, setFilterArray] = useState([]);
+
+  const handleClick = (e) => {
+    setFilterArray(filterArray.concat(1))
+    console.log(filterArray)
+    e.preventDefault();
+    // const filtered = data.filter(job => job.languages)
+    // setData(filtered);
+  }
   return (
     <div className="App">
       <NavBar />
+      <div className='filter-container'>
+
+      </div>
       <div className='job-listings-container'>
         {data.map(job => (
-          job.featured ? <Card key={job.id} data={job} className={'featured-job'}/>  : <Card key={job.id} data={job} />
+          job.featured ? <Card key={job.id} data={job} className={'featured-job'} onClickFunction={handleClick} />  : <Card key={job.id} data={job} />
           
         ))}
       </div>
