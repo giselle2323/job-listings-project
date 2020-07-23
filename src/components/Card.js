@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import image from '../images/account.svg';
 
-const Card = ({data, className}) => {
-  // handleClick = () => {
-    
-  // }
+const Card = ({data, className, onClickFunction}) => {
+  const handleClick = (e) => {
+    onClickFunction(e)
+  }
   return (
       <div className={`card ${className}`}>
         <img className='card-image' src={image} alt="account" />
@@ -25,13 +25,13 @@ const Card = ({data, className}) => {
           </div>
           <hr className='card-horizontal-rule'/>
           <div className='card-bottom-buttons'>
-            <button className='card-button-label' onClick>{data.role}</button>
-            <button className='card-button-label'>{data.level}</button>
-            {data.languages.map(language => (
-              <button className='card-button-label'>{language}</button>
+            <button className='card-button-label' value={data.role} onClick={handleClick}>{data.role}</button>
+            <button className='card-button-label' value={data.level} onClick={handleClick}>{data.level}</button>
+            {data.languages.map((language, idx) => (
+              <button key={idx} className='card-button-label' value={language} onClick={handleClick}>{language}</button>
             ))}
-            {data.tools.map(tool => (
-              <button className='card-button-label'>{tool}</button>
+            {data.tools.map((tool, idx) => (
+              <button key={idx} className='card-button-label' value={tool} onClick={handleClick}>{tool}</button>
             ))}
           </div>
         </div>
@@ -42,7 +42,8 @@ const Card = ({data, className}) => {
 
 Card.propTypes = {
   className: PropTypes.string,
-  data: PropTypes.array
+  data: PropTypes.object,
+  onClickFunction : PropTypes.func
 }
 
 Card.defaultProps = {
