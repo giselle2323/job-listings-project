@@ -10,12 +10,13 @@ const App = ()  => {
   const [filterArray, setFilterArray] = useState([]);
 
   const handleClick = (e) => {
-    setFilterArray(filterArray.concat(1))
-    console.log(filterArray)
-    e.preventDefault();
-    // const filtered = data.filter(job => job.languages)
-    // setData(filtered);
+    e.persist()
+    setFilterArray(filterArray => [e.target.value, ...filterArray])
+    const filtered = data.filter(job => filterArray.includes(job.role))
+    setData(filtered);
+    console.log(filtered)
   }
+  console.log(filterArray, data)
   return (
     <div className="App">
       <NavBar />
@@ -24,7 +25,7 @@ const App = ()  => {
       </div>
       <div className='job-listings-container'>
         {data.map(job => (
-          job.featured ? <Card key={job.id} data={job} className={'featured-job'} onClickFunction={handleClick} />  : <Card key={job.id} data={job} />
+          job.featured ? <Card key={job.id} data={job} className={'featured-job'} onClickFunction={handleClick} /> : <Card key={job.id} data={job} onClickFunction={handleClick} />
           
         ))}
       </div>
