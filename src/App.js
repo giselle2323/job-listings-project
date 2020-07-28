@@ -7,22 +7,35 @@ import Card from './components/Card';
 const App = ()  => {
 
   const [data, setData] = useState(Data);
-  const [filterArray, setFilterArray] = useState([]);
+  const [query, setQuery] = useState([]);
 
   const handleClick = (e) => {
     e.persist()
-    setFilterArray(filterArray => [e.target.value, ...filterArray])
-    const filtered = data.filter(job => filterArray.includes(job.role))
-    setData(filtered);
-    console.log(filtered)
+    setQuery(queryText => [e.target.value, ...queryText])
+    filterFunction()
+    console.log(data);
+    return (
+      <div className='modal'>
+        <div className='filter-container'>
+          {query.map(queryText => <button className={`card-button-label ${queryText}`} key={queryText}>{queryText}</button>)}
+        </div>
+      </div>
+    )
   }
-  console.log(filterArray, data)
+
+  const filterFunction = () => {
+    const filtered = data.filter(job => query.length ?
+      query.includes(job.role) ||
+      query.includes(job.level) ||
+      job.tools.some(tool => query.includes(tool)) ||
+      job.languages.some(language => query.includes(language))
+      : data
+    )
+    setData(filtered);
+  }
   return (
     <div className="App">
       <NavBar />
-      <div className='filter-container'>
-
-      </div>
       <div className='job-listings-container'>
         {data.map(job => (
           job.featured ? <Card key={job.id} data={job} className={'featured-job'} onClickFunction={handleClick} /> : <Card key={job.id} data={job} onClickFunction={handleClick} />
@@ -31,6 +44,6 @@ const App = ()  => {
       </div>
     </div>
   );
-}
+};
 
 export default App;
