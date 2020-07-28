@@ -13,6 +13,14 @@ const App = ()  => {
     e.persist()
     setQuery(queryText => [e.target.value, ...queryText])
     filterFunction()
+    console.log(data);
+    return (
+      <div className='modal'>
+        <div className='filter-container'>
+          {query.map(queryText => <button className={`card-button-label ${queryText}`} key={queryText}>{queryText}</button>)}
+        </div>
+      </div>
+    )
   }
 
   const filterFunction = () => {
@@ -23,15 +31,7 @@ const App = ()  => {
       job.languages.some(language => query.includes(language))
       : data
     )
-
-    console.log(filtered);
-    return (
-      <div className='modal'>
-        <div className='filter-container'>
-          {query.map(queryText => <button className={`card-button-label ${queryText}`} key={queryText}>{queryText}</button>)}
-        </div>
-      </div>
-    )
+    setData(filtered);
   }
   return (
     <div className="App">
